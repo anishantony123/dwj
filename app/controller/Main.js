@@ -818,6 +818,7 @@ Ext.define('radiss.controller.Main', {
 		takePicture:function(btn){
 		//	console.log("------------->>"+btn.up('panel'));  
 		//	console.log('Picture taking....');
+		//btn.up('panel').setData({imgUrl:'asasa'});
 			try{
 			var destinationType;
 			function onDeviceReady() {						
@@ -827,7 +828,7 @@ Ext.define('radiss.controller.Main', {
 			document.addEventListener("deviceready",onDeviceReady,false);
 			
 			onPhotoDataSuccess=function(imageURL){
-        	btn.up('panel').setData('{imgUrl:'+imageURL+'}');
+        	btn.up('panel').setData({imgUrl:imageURL});
         	console.log(attachMentObj.getHtml());
         		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'">');
         		console.log(attachMentObj.getHtml());
@@ -865,7 +866,7 @@ Ext.define('radiss.controller.Main', {
         	imageUriObj=btn.up('panel').getData();
         	console.log(imageUriObj);
         	if(imageUriObj){
-			Ext.msg.alert('image',imageUriObj.imgUrl);
+			Ext.Msg.alert('image',imageUriObj.imgUrl);
         		uploadPhoto(imageUriObj.imgUrl);
         		}
         	function uploadPhoto(imageURI) {
@@ -885,7 +886,7 @@ Ext.define('radiss.controller.Main', {
             var ft = new FileTransfer();
             ft.upload(encodeURI(imageURI), encodeURI("http://115.115.123.202:9090/dwj/upload.php"), win, fail, options);
 			}catch(e){
-			Ext.msg.alert('error',e);
+			Ext.Msg.alert('error',e);
 			}
         }
 
