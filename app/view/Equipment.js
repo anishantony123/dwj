@@ -5,7 +5,7 @@ var equipment =Ext.define('radiss.view.Equipment',{
 	
 	config:{			
 	title:'Equipment',
-	iconCls:'add',
+	iconCls:'favorites',
 	onItemDisclosure: true,
 	glossOnIcon: false,
 		store:{
