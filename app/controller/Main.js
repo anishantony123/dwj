@@ -865,6 +865,7 @@ Ext.define('radiss.controller.Main', {
         	imageUriObj=btn.up('panel').getData();
         	console.log(imageUriObj);
         	if(imageUriObj){
+			Ext.msg.alert('image',imageUriObj.imgUrl);
         		uploadPhoto(imageUriObj.imgUrl);
         		}
         	function uploadPhoto(imageURI) {
@@ -883,6 +884,9 @@ Ext.define('radiss.controller.Main', {
 
             var ft = new FileTransfer();
             ft.upload(encodeURI(imageURI), encodeURI("http://115.115.123.202:9090/dwj/upload.php"), win, fail, options);
+			}catch(e){
+			Ext.msg.alert('error',e);
+			}
         }
 
         function win(r) {
@@ -897,12 +901,7 @@ Ext.define('radiss.controller.Main', {
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
         }
-        }catch(e){
-		Ext.Msg.show({
-								title:'upload issue',
-								message:e
-							});
-		}	
+        	
 
         }
         
