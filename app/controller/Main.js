@@ -816,15 +816,11 @@ Ext.define('radiss.controller.Main', {
     				});
 		},
 		takePicture:function(btn){
-			console.log("------------->>"+btn.up('panel'));  
-			console.log('Picture taking....');
+		//	console.log("------------->>"+btn.up('panel'));  
+		//	console.log('Picture taking....');
 			try{
-			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        	destinationType: destinationType.DATA_URL });
-        	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
-        	console.log(attachMentObj.getHtml());
-        	btn.setText('Take another picture');
-        	onPhotoDataSuccess=function(imageURL){
+			
+			onPhotoDataSuccess=function(imageURL){
         	btn.up('panel').setData('{imgUrl:'+imageURL+'}');
         	console.log(attachMentObj.getHtml());
         		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'">');
@@ -840,6 +836,14 @@ Ext.define('radiss.controller.Main', {
 								message:message
 							})
 						}
+			
+			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        	destinationType: destinationType.DATA_URL });
+        	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
+        	console.log(attachMentObj.getHtml());
+        	btn.setText('Take another picture');
+			
+        	
 					}
         	catch(err)
         	{
