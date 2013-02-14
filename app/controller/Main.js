@@ -830,7 +830,7 @@ Ext.define('radiss.controller.Main', {
 			onPhotoDataSuccess=function(imageURL){
         	btn.up('panel').setData({imgUrl:imageURL});
         	console.log(attachMentObj.getHtml());
-        		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'">');
+        		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'" width="200" height="200">');
         		console.log(attachMentObj.getHtml());
         		
         	}
@@ -866,7 +866,7 @@ Ext.define('radiss.controller.Main', {
         	imageUriObj=btn.up('panel').getData();
         	console.log(imageUriObj);
         	if(imageUriObj){
-			Ext.Msg.alert('image',imageUriObj.imgUrl);
+		//	Ext.Msg.alert('image',imageUriObj.imgUrl);
         		uploadPhoto(imageUriObj.imgUrl);
         		}
         	function uploadPhoto(imageURI) {
@@ -891,7 +891,7 @@ Ext.define('radiss.controller.Main', {
         }
 
         function win(r) {
-        Ext.msg.alert('Uploaded','uploaded sucessfully',Ext.emptyFn);
+        Ext.Msg.alert('Uploaded','uploaded sucessfully');
             console.log("Code = " + r.responseCode);
             console.log("Response = " + r.response);
             console.log("Sent = " + r.bytesSent);
