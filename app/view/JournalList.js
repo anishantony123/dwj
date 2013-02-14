@@ -5,7 +5,7 @@ Ext.define('radiss.view.JournalList',{
 	requires:['Ext.form.FieldSet','Ext.field.Text'],
 	config:{			
 	title:'Journal',
-	iconCls:'settings',
+	iconCls:'favorites',
 	glossOnIcon: false,
 	onItemDisclosure: true,
 		store:{
