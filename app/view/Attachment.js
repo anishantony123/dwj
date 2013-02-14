@@ -16,7 +16,7 @@ Ext.define('radiss.view.Attachment',{
 	            
 	        ]
 		},
-	itemTpl:'<span><font size="2"><b><a href>{fileName}</a></b></font></span>',
+	//itemTpl:'<span><font size="2"><b><a href>{fileName}</a></b></font></span>',
 	items: [{
 			xtype: 'toolbar',
 	                docked: 'top',
