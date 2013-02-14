@@ -1,0 +1,17 @@
+Ext.define('radiss.view.TaskDetails',{
+	extend:'Ext.TabPanel',
+	xtype:'taskdetailscard',
+	requires:['radiss.view.Details','radiss.view.TaskAnalysis'],	
+	config:{	
+		fullscreen:true,
+		tabBarPosition:'bottom',
+		items:[
+			{
+			xtype:'detailscard'
+			},
+			{
+			xtype:'taskanalysiscard' 
+			}
+			]	
+		}
+});
