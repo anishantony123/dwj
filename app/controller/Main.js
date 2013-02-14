@@ -869,7 +869,7 @@ Ext.define('radiss.controller.Main', {
         		}
         	function uploadPhoto(imageURI) {
         	console.log(imageURI);
-        	
+        	try{
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -897,7 +897,12 @@ Ext.define('radiss.controller.Main', {
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
         }
-        	
+        }catch(e){
+		Ext.Msg.show({
+								title:'upload issue',
+								message:e
+							});
+		}	
 
         }
         
