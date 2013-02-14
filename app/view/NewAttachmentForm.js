@@ -25,7 +25,7 @@ items:[
             		},{
             			xtype:'button',
             			itemId: 'savePicture',
-            			text:'Save',
+            			text:'Upload',
             			action:'savePicture',
             			ui:'button'
             		},
