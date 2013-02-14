@@ -821,7 +821,7 @@ Ext.define('radiss.controller.Main', {
 			try{
 			var destinationType;
 			function onDeviceReady() {						
-						destinationType=navigator.camera.DestinationType;
+						destinationType=Camera.DestinationType.FILE_URI;
 					}
 					
 			document.addEventListener("deviceready",onDeviceReady,false);
@@ -843,7 +843,7 @@ Ext.define('radiss.controller.Main', {
 						}
 			
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        	destinationType: destinationType.DATA_URL});
+        	destinationType: destinationType});
 			
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
         	console.log(attachMentObj.getHtml());
