@@ -843,7 +843,7 @@ Ext.define('radiss.controller.Main', {
 						}
 			
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        	destinationType: destinationType.FILE_URI});
+        	destinationType: destinationType.DATA_URL});
 			
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
         	console.log(attachMentObj.getHtml());
