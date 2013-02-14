@@ -838,7 +838,7 @@ Ext.define('radiss.controller.Main', {
 						}
 			
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        	destinationType: destinationType.DATA_URL });
+        	destinationType: navigator.camera.DestinationType.DATA_URL});
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
         	console.log(attachMentObj.getHtml());
         	btn.setText('Take another picture');
