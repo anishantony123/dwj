@@ -989,6 +989,7 @@ Ext.define('radiss.controller.Main', {
         
         var xmlString="<root>";
         	configObj=this.getConfigurationform();
+        	attachmentObj=this.getAttachment().getStore();
         	var url='/iapd/ipadapp/ipadapp/WebRoot/sync.jsp';
         	if(configObj.items.items[1].items.items[1].getValue()){
 	        	url=configObj.items.items[1].items.items[1].getValue();
@@ -1002,6 +1003,12 @@ Ext.define('radiss.controller.Main', {
         		xmlString+='<journalEntry>'+record.get("journal")+'</journalEntry>';
         	});
         	xmlString+="</journal>";
+        	xmlString+="<attachment>";
+        	attachmentObj.each(function(record){
+        		xmlString+='<attachmentId>'+""+record.get("id")+'</attachmentId>';
+        		xmlString+='<attachmentImg>'+record.get("fileName")+'</attachmentImg>';
+        	});
+        	xmlString+="</attachment>";
         	xmlString+="</root>";     
 			console.log(xmlString);
 			

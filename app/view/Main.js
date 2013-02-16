@@ -16,6 +16,10 @@ config:{
 		{
 		xtype:'maintask'
 		},
+		
+				{
+				xtype:'attachment'
+				},
 		{
 		xtype:'listJournal'		
 		},
@@ -24,7 +28,8 @@ config:{
 		},
 		{
 		xtype:'equipment'
-		},
+		}
+		/*,
 		{
 		xtype:'activitesntasks'
 		},
@@ -37,10 +42,7 @@ config:{
 		{
 		xtype:'labour'
 		}
-		,
-				{
-				xtype:'attachment'
-				}
+		*/
 				
 		
 		]	

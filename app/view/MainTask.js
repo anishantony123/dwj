@@ -12,7 +12,7 @@ items:[
 	xtype: 'toolbar',
             docked: 'top',
             title: 'Main',
-            items:[{xtype:'spacer'},
+            items:[
             		{
             			xtype:'button',
             			text:'Settings',
