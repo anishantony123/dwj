@@ -11,9 +11,11 @@ Ext.define('radiss.view.JournalList',{
 		store:{
 		 fields: ['id', 'journal'],
 	        data: [
-	            {id: 1,  journal: 'Walked Building 1 in the morning. All crews working and expected. Some rail dameged that may require re-grading to prevent future damage Area still complies with storm water management plan'},
-	            {id: 2,   journal: 'Walked Building 1 in the morning. All crews working and expected. Some rail dameged that may require re-grading to prevent future damage Area still complies with storm water management plan'}
-	            
+	            /*
+				{id: 1,  journal: 'Walked Building 1 in the morning. All crews working and expected. Some rail dameged that may require re-grading to prevent future damage Area still complies with storm water management plan'},
+								{id: 2,   journal: 'Walked Building 1 in the morning. All crews working and expected. Some rail dameged that may require re-grading to prevent future damage Area still complies with storm water management plan'}
+								*/
+				
 	        ]
 		},
 	itemTpl:'<span><font size="2"><b>{journal}</b></font></span>',

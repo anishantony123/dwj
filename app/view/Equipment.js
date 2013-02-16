@@ -1,6 +1,7 @@
 var equipment =Ext.define('radiss.view.Equipment',{
 	extend:'Ext.List',
 	xtype:'equipment',
+	requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditEquipment'],
 	fullscreen:true,
 	
 	config:{			
@@ -9,14 +10,16 @@ var equipment =Ext.define('radiss.view.Equipment',{
 	onItemDisclosure: true,
 	glossOnIcon: false,
 		store:{
-		 fields: ['id', 'Equipment','OperatingCompany', 'EquiStatus','RegRate','OverRate','qty'],
+		 fields: ['id', 'Equipment','OperatingCompany', 'EquiStatus','RegRate','OverRate','qty','areazone'],
 	        data: [
-	            {id: 1,  Equipment: 'EXCAV:Excavator',  OperatingCompany: 'RER Contractors, Inc',  EquiStatus: 'Active-Regular',  RegRate: '200.00',  OverRate: '500.00',qty:'1'},
-	            {id: 2,  Equipment: 'EXCAV2:Excavator',  OperatingCompany: 'RER2 Contractors, Inc',  EquiStatus: 'InActive',  RegRate: '395.00',  OverRate: '500.00',qty:'1'}
-	            
+	            /*
+				{id: 1,  Equipment: 'EXCAV:Excavator',  OperatingCompany: 'RER Contractors, Inc',  EquiStatus: 'Active-Regular',  RegRate: '200.00',  OverRate: '500.00',qty:'1', areazone: 'USA'},
+								{id: 2,  Equipment: 'EXCAV2:Excavator',  OperatingCompany: 'RER2 Contractors, Inc',  EquiStatus: 'InActive',  RegRate: '395.00',  OverRate: '500.00',qty:'1',  areazone: 'USA'}
+							 */
+				   
 	        ]
 		},
-	itemTpl:'<span>{Equipment} ({OperatingCompany})<br/><font size="2"><b>Equipment Status: {EquiStatus}</b></font><br/><font size="2"><b> Regular Rate: {RegRate} | Overtime Rate: {OverRate} | Quantity: {qty}</b></font></span>',
+	itemTpl:'<span>{Equipment} ({OperatingCompany})<br/><font size="2"><b>Equipment Status: {EquiStatus}</b></font><br/><font size="2"><b> Regular Rate: {RegRate} | Overtime Rate: {OverRate} | Quantity: {qty} | Area/Zone: {areazone}</b></font></span>',
 	items:[
     	{
                 docked: 'top',

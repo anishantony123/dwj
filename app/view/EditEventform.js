@@ -3,6 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'editeventform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.Hidden'],
 config:{
+	title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

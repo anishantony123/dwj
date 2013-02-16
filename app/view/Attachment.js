@@ -7,16 +7,16 @@ Ext.define('radiss.view.Attachment',{
 	title:'Attachment',
 	iconCls:'favorites',
 	glossOnIcon: false,
-	onItemDisclosure: true,
+	/*onItemDisclosure: true,*/
 		store:{
-		 fields: ['id', 'fileName','filePath'],
+		 fields: ['id','fileName','filePath'],
 	        data: [
-	            {id: 1,  fileName: 'FileLink1'},
-	            {id: 2,   fileName: 'FileLink2'}
-	            
+	           /*
+				{id: 1,  fileName: 'FileLink1'},
+							   {id: 2,   fileName: 'FileLink2'}*/    
 	        ]
 		},
-	//itemTpl:'<span><font size="2"><b><a href>{fileName}</a></b></font></span>',
+	itemTpl:'<span><font size="2"><b><img src="data:image/jpeg;base64,{fileName}"></b></font></span>',
 	items: [{
 			xtype: 'toolbar',
 	                docked: 'top',

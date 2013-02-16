@@ -18,6 +18,7 @@ Ext.define('radiss.controller.Main', {
 			journal:'journal',
 			datalist:'datalist',
 			visitors:'visitors',
+			activitesntasks:'activitesntasks',
 			labour:'labour',
 			attachment:'attachment',
 			addjournal:'button[action=addjournal]',
@@ -37,10 +38,12 @@ Ext.define('radiss.controller.Main', {
 			labourNew:'button[action=newLabour]',
 			attachmentNew:'button[action=newAttachment]',
 			addNewEvent:'button[action=addnewevent]',
+			saveConfiguration:'button[action=saveConfiguration]',
 			events:'events',
 			newEvent:'button[action=newevent]',
 			addNewActivity:'button[action=addnewactivity]',
 			eventsDelete:'button[action=eventsDelete]',
+			settingsShow:'button[action=showSettings]',
 			equipmentsDelete:'button[action=equipmentsDelete]',
 			loadSiteDetails:'button[action=LoadSiteDetails]',
 			addNewWeather:'button[action=addnewweather]',
@@ -49,6 +52,7 @@ Ext.define('radiss.controller.Main', {
 			saveJournal:'button[action=savejournal]',
 			deleteJournal:'button[action=deletejournal]',
 			deleteVisitor:'button[action=deletevisitor]',
+			deleteActivities:'button[action=deleteactivities]',
 			deleteLabour:'button[action=deletelabour]',
 			deleteAttachment:'button[action=deleteattachment]',
 			journalPanel:'journalpanel',
@@ -65,7 +69,9 @@ Ext.define('radiss.controller.Main', {
 			saveEvent:'button[action=saveevent]',
 			updateEvent:'button[action=updateevent]',
 			takeAPicture:'button[action=takeAPicture]',
-			savePicture:'button[action=savePicture]'
+			savePicture:'button[action=savePicture]',
+			syncServer:'button[action=sync]',
+			configurationform:'configurationform'
 
 
          },
@@ -109,7 +115,7 @@ Ext.define('radiss.controller.Main', {
 			closeevent:{
 				tap:'closeEvent'
 					},
-			activitesDel:{
+			deleteActivities:{
 				tap:'deleteActivities'
 			},
 			activitiesNew:{
@@ -129,6 +135,9 @@ Ext.define('radiss.controller.Main', {
 			addNewEvent:{
 				tap:'addNewEvent'
 			},
+			saveConfiguration:{
+				tap:'saveConfiguration'
+			},
 			newEvent:{
 				tap:'loadNewEventForm'
 			},
@@ -137,6 +146,9 @@ Ext.define('radiss.controller.Main', {
 			},
 			eventsDelete:{
 				tap:'deleteEvents'
+			},
+			settingsShow:{
+				tap:'settingsShow'
 			},
 			equipmentsDelete:{
 				tap:'deleteEquipment'
@@ -236,6 +248,9 @@ Ext.define('radiss.controller.Main', {
 			},
 			savePicture:{
 				tap:'savePicture'
+			},
+			syncServer:{
+				tap:'syncServer'
 			}
     	}	
     	},
@@ -338,12 +353,17 @@ Ext.define('radiss.controller.Main', {
 						    		 	}
 					    		 },this);
 		},
-		deleteActivities:function(list,record){
-		//	var selArray=this.getActivitiesntasks().getSelectionModel().getSelected();
+		deleteActivities:function(btn){
+		//	console.log("--------------");
+			var index=this.getActivitesntasks().getStore().indexOfId(btn.up('editactivitiesntaskform').getValues().id);
 			
-
-			this.getActivitiesntasks().getStore().removeAt(0);
-		},
+			Ext.Msg.confirm('Delete','Do you want to Delete',function(btn){
+					    			 if(btn=='yes'){
+						    			this.getActivitesntasks().getStore().removeAt(index);
+						    			this.getMain().pop();
+						    		 	}
+					    		 },this);
+			},
 
 		newActivities:function(btn,evt){
 			this.getMain().push({xtype:'activitiesntaskform'});
@@ -377,6 +397,9 @@ Ext.define('radiss.controller.Main', {
 					})
 
 		},
+		saveConfiguration:function(btn){
+			this.getMain().pop();
+		},
 		
 		deleteEvents:function(btn){
 			var index=this.getEvents().getStore().indexOfId(btn.up('formpanel').getValues().id);
@@ -387,6 +410,43 @@ Ext.define('radiss.controller.Main', {
 						    			this.getMain().pop();
 						    		 	}
 					    		 },this);
+		},
+		settingsShow:function(btn,evt){
+				Ext.create('Ext.Panel', {	
+                    	 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
+					     left: 0,
+					     padding: 10,
+					     border:1,
+					   //  width:500,
+					     modal:true,
+					     hideOnMaskTap: true,
+					     items:[
+					    	
+					    	  {
+					    		 xtype:'button',
+					    		 text:'Synchronize',
+					    		 action:'sync',
+					    		/* handler:function(){
+					    		 	this.getParent().hide({type: 'slideOut', direction: 'left'}); 
+					    		 	var myMask = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+					    		 	myMask.show()
+					    		 }*/
+					    	  },{
+					    		 xtype:'button',
+					    		 text:'Configuration',
+					    		// action:'addnewactivity',
+					    		 handler:function(){
+					    		 	
+					    		 	this.getParent().hide({type: 'slideOut', direction: 'left'}); 
+					    		 	var parentObject=btn.getParent().getParent().getParent().getParent();
+					    		 	parentObject.push({
+            	xtype: 'configurationform'            	
+        		});
+					    		 	console.log(parentObject);
+					    		 	 }
+					    	  },
+					    	 ]
+					 }).showBy(btn);
 		},
 		deleteEquipment:function(btn){
 		//	console.log("--------------");
@@ -411,68 +471,71 @@ Ext.define('radiss.controller.Main', {
 
 		addWeather:function(btn,evt){
 
+			/*
 			Ext.create('Ext.Panel', {	
-                    	 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
-					     left: 0,
-					     padding: 10,
-					     modal:true,
-					     hideOnMaskTap: true,
-					     items:[
-					    	 {
-					    		 xtype:'textfield',
-					    		 label:'From Time',
-					    		 name:'fromTime',
-					    		 id:'fromDateField'
-					    	 },
-					    	 {
-					    		 xtype:'textfield',
-					    		 label:'To Time',
-					    		 name:'toTime',
-					    		 id:'toDateField'
-					    	 },
-					    	 {
-					    		 xtype:'textfield',
-					    		 label:'Note',
-					    		 name:'note',
-					    		 id:'notefield'
-					    	  },
-					    	   {
-					    		 xtype:'textfield',
-					    		 label:'Percipitation',
-					    		 name:'perception',
-					    		 id:'perceptionField'
-					    	  },
-					    	  {
-					    		 xtype:'textfield',
-					    		 label:'Rainfall',
-					    		 name:'rainFall',
-					    		 id:'rainfallField'
-					    	  },
-					    	  {
-					    		 xtype:'textfield',
-					    		 label:'Snowfall',
-					    		 name:'snowFall',
-					    		 id:'snowfallField'
-					    	  },
-					    	  {
-					    		 xtype:'button',
-					    		 text:'Add Weather',
-					    		handler:function(){var fromDateField=this.getParent().child('#fromDateField').getValue();
-			var toDateField=this.getParent().child('#toDateField').getValue();
-			var notefield=this.getParent().child('#notefield').getValue();
-			var perceptionField=this.getParent().child('#perceptionField').getValue();
-			var rainfallField=this.getParent().child('#rainfallField').getValue();
-			var snowfallField=this.getParent().child('#snowfallField').getValue();
-			var listJournalObj=btn.getParent().getParent();
-			listJournalObj.getStore().add({fromTime: fromDateField,toTime:toDateField,notes:notefield,precipitation:perceptionField,rainfall:rainfallField,snowfall:snowfallField}	
-				    				);
-					    		 }
-					    		 
-					    	  }
-					    	 ]
-					 }).showBy(btn);
+									 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
+									 left: 0,
+									 padding: 10,
+									 modal:true,
+									 hideOnMaskTap: true,
+									 items:[
+										 {
+											 xtype:'textfield',
+											 label:'From Time',
+											 name:'fromTime',
+											 id:'fromDateField'
+										 },
+										 {
+											 xtype:'textfield',
+											 label:'To Time',
+											 name:'toTime',
+											 id:'toDateField'
+										 },
+										 {
+											 xtype:'textfield',
+											 label:'Note',
+											 name:'note',
+											 id:'notefield'
+										  },
+										   {
+											 xtype:'textfield',
+											 label:'Percipitation',
+											 name:'perception',
+											 id:'perceptionField'
+										  },
+										  {
+											 xtype:'textfield',
+											 label:'Rainfall',
+											 name:'rainFall',
+											 id:'rainfallField'
+										  },
+										  {
+											 xtype:'textfield',
+											 label:'Snowfall',
+											 name:'snowFall',
+											 id:'snowfallField'
+										  },
+										  {
+											 xtype:'button',
+											 text:'Add Weather',
+											handler:function(){var fromDateField=this.getParent().child('#fromDateField').getValue();
+						var toDateField=this.getParent().child('#toDateField').getValue();
+						var notefield=this.getParent().child('#notefield').getValue();
+						var perceptionField=this.getParent().child('#perceptionField').getValue();
+						var rainfallField=this.getParent().child('#rainfallField').getValue();
+						var snowfallField=this.getParent().child('#snowfallField').getValue();
+						var listJournalObj=btn.getParent().getParent();
+						listJournalObj.getStore().add({fromTime: fromDateField,toTime:toDateField,notes:notefield,precipitation:perceptionField,rainfall:rainfallField,snowfall:snowfallField}	
+												);
+											 }
+																						 }
+										 ]
+								 }).showBy(btn);*/
+			
 
-
+		this.getMain().push({
+    				xtype:'weatherform'
+    			});
 		},
 		
 		addEquipment:function(btn,evt){
@@ -582,6 +645,7 @@ Ext.define('radiss.controller.Main', {
 						    		 	}
 					    		 },this);
 			},
+			
 			deleteLabour:function(btn){
 		//	console.log("--------------");
 			var index=this.getLabour().getStore().indexOfId(btn.up('editLabourForm').getValues().id);
@@ -816,23 +880,38 @@ Ext.define('radiss.controller.Main', {
     				});
 		},
 		takePicture:function(btn){
+			
 		//	console.log("------------->>"+btn.up('panel'));  
-		//	console.log('Picture taking....');
+		//	console.log('xzPicture taking....');
 		//btn.up('panel').setData({imgUrl:'asasa'});
 			try{
 			var destinationType;
 			function onDeviceReady() {						
-						destinationType=Camera.DestinationType.FILE_URI;
+						//destinationType=Camera.DestinationType.FILE_URI; fr image url
+						destinationType=Camera.DestinationType.DATA_URL;
+						
 					}
 					
 			document.addEventListener("deviceready",onDeviceReady,false);
 			
-			onPhotoDataSuccess=function(imageURL){
+			/*onPhotoDataSuccess=function(imageURL){
         	btn.up('panel').setData({imgUrl:imageURL});
         	console.log(attachMentObj.getHtml());
-        		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'" width="200" height="200">');
+        		attachMentObj.setHtml('Image Path:'+imageURL+' <br/><img src="'+imageURL+'" width="300" height="200">');
         		console.log(attachMentObj.getHtml());
-        		
+        		var urlLast = imageURL.match(/([^\/]+)(?=\.\w+$)/)[0];
+        		this.getAttachment().getStore().add({fileName:urlLast});
+        	}*/
+        	
+        	onPhotoDataSuccess=function(imageData){
+        	btn.up('panel').setData({imgUrl:imageData});
+        	console.log(attachMentObj.getHtml());
+        	imageEncoded="data:image/jpeg;base64,"+imageData;
+        		attachMentObj.setHtml('<img src='+imageEncoded+' width="300" height="200">');
+        		console.log(attachMentObj.getHtml());
+        		//var urlLast = imageURL.match(/([^\/]+)(?=\.\w+$)/)[0];
+        		//this.getAttachment().getStore().add({fileName:urlLast});
+        		this.getAttachment().getStore().add({fileName:imageData});
         	}
 
 			onFail=function(message){
@@ -849,6 +928,8 @@ Ext.define('radiss.controller.Main', {
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
         	console.log(attachMentObj.getHtml());
         	btn.setText('Take another picture');
+        	
+        	
 			
 					}
         	catch(err)
@@ -902,8 +983,43 @@ Ext.define('radiss.controller.Main', {
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
         }
-        	
 
+        },
+        syncServer:function(btn){
+        
+        var xmlString="<root>";
+        	configObj=this.getConfigurationform();
+        	var url='/iapd/ipadapp/ipadapp/WebRoot/sync.jsp';
+        	if(configObj.items.items[1].items.items[1].getValue()){
+	        	url=configObj.items.items[1].items.items[1].getValue();
+	        	}
+	        	console.log(url)
+        
+        	var journalObj=this.getJournallist().getStore();
+        	xmlString+="<journal>";
+        	journalObj.each(function(record){
+        		xmlString+='<journalId>'+""+record.get("id")+'</journalId>';
+        		xmlString+='<journalEntry>'+record.get("journal")+'</journalEntry>';
+        	});
+        	xmlString+="</journal>";
+        	xmlString+="</root>";     
+			console.log(xmlString);
+			
+			
+			
+			//Ext.Ajax.request({
+		 Ext.data.JsonP.request({
+			    url: url,
+			    params: {
+			        id: xmlString
+			    },
+			    success: function(response){
+			        var text = response.responseText;
+			      	  console.log(text);
+			        // process server response here
+			    }
+			});
+		
         }
         
 

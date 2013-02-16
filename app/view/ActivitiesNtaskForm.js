@@ -2,8 +2,9 @@ Ext.define('radiss.view.ActivitiesNtaskForm',{
 extend:'Ext.form.FormPanel',
 xtype:'activitiesntaskform',
 id:'activitiesntaskform',
-requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker'],
+requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker','Ext.field.Select'],
 config:{
+	title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,
@@ -44,18 +45,31 @@ items:[
 					    		 xtype:'datepickerfield',
 					    		 label:'Start Date',
 					    		 name:'startDate',
-					    		 id:'startDateText'
+					    		 id:'startDateText',
+					    		 required:true
 					    	  },
+					    	  
 					    	   {
 					    		 xtype:'datepickerfield',
 					    		 label:'End Date',
 					    		 name:'endDate',
-					    		 id:'endDateText'
+					    		 id:'endDateText',
+					    		 required:true
 					    	  },
+							  {
+																			  xtype: 'selectfield',
+																			  label: 'Responsible Company',
+																			  name:'responsibleCompany',
+																			  id:'responsibleCompany',
+																			  options: [
+																		  {text: 'RER Contractors',  value: 'RER Contractors'},
+																			  {text: 'Reed Services',  value: 'Reed Services'}
+						 ]}
+							  ,
 			
 			{
             xtype: 'button',
-            text: 'add',
+            text: 'Add',
             action:'saveactivities',
             ui:'button'
 			}

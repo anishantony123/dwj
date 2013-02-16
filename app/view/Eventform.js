@@ -4,6 +4,7 @@ xtype:'eventform',
 id:'eventform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox'],
 config:{
+	title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

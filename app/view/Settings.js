@@ -1,5 +1,5 @@
 Ext.define('radiss.view.Settings',{
-extend:'Ext.form.FormPanel',
+extend:'Ext.form.Panel',
 xtype:'settings',
 requires:['Ext.form.FieldSet','Ext.field.Text'],
 config:{
@@ -19,13 +19,15 @@ items:[
 			xtype:'textfield',
 			name:'host',
 			label:'Host',
-			required:true
+			required:true,
+			value:'rakesh'
 			},
 			{
 			xtype:'textfield',
 			name:'port',
 			label:'Port',
-			required:true
+			required:true,
+			value:'rakeshzzzzz'
 			}
 		]
 		},

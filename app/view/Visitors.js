@@ -12,9 +12,11 @@ config:{
 		store:{
 		 fields: ['id', 'company','compName','purposeOfVisit','toSee','arrivalTime','depatureTime'],
 	        data: [
-	            {id: 1,  company: 'Yes',compName: 'Concrete Footing east side', purposeOfVisit:'1', toSee:'Some description about task one', arrivalTime:'22',depatureTime:'22'},
-	            {id: 2,  company: 'No',compName: 'Electrical trenches main service', purposeOfVisit:'1', toSee:'More description about second one',arrivalTime:'22',depatureTime:'55'}
-	            
+	            /*
+				{id: 1,  company: 'Lakewood',compName: 'John', purposeOfVisit:'Industrial visit', toSee:'To see Discription', arrivalTime:'10:00 AM',depatureTime:'12:00 PM'},
+								{id: 2,  company: 'AEM',compName: 'Steve', purposeOfVisit:'Industrial visit', toSee:'To see Discription',arrivalTime:'11:00 AM',depatureTime:'5:00 PM'}
+								*/
+				
 	        ]
 		},
 	itemTpl:'<span>{company}&nbsp;(Company Name:{compName})<br/><font size="2"><b>Purpose Of Visit: {purposeOfVisit}<br/>To See: {toSee} | Arrival Time: {arrivalTime} | Depature Time: {depatureTime}</b></font></span>',

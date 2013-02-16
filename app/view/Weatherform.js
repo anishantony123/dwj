@@ -4,6 +4,7 @@ xtype:'weatherform',
 id:'weatherform',
 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
 config:{
+title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,
@@ -36,12 +37,22 @@ items:[
 					    		 name:'notes',
 					    		 id:'notefield'
 					    	  },
-					    	   {
-					    		 xtype:'textfield',
-					    		 label:'Percipitation',
-					    		 name:'precipitation',
-					    		 id:'perceptionField'
-					    	  },
+					    	   
+		
+					    
+							 {
+												xtype: 'selectfield',
+												label: 'Percipitation',
+												name:'precipitation',
+												id:'perceptionField',
+												options: [
+												{text: 'Drizzle: Drizzle',  value: 'Drizzle: Drizzle'},
+												{text: 'Flurries: Flurries',  value: 'Flurries: Flurries'},
+												{text: 'Rain: Rain', value: 'Rain: Rain'},
+												{text: 'Showers: Showers',  value: 'Showers: Showers'},
+												{text: 'Sleet: Sleet',  value: 'Sleet: Sleet'},
+												{text: 'Snow: Snow',  value: 'Snow: Snow'}
+											]},
 					    	  {
 					    		 xtype:'textfield',
 					    		 label:'Rainfall',
@@ -54,9 +65,27 @@ items:[
 					    		 name:'snowfall',
 					    		 id:'snowfallField'
 					    	  },
+					    	  {
+					    		 xtype:'textfield',
+					    		 label:'Low Temparature',
+					    		 name:'lowTemp',
+					    		 id:'lowTemp'
+					    	  },
+					    	  {
+					    		 xtype:'textfield',
+					    		 label:'High Temparature',
+					    		 name:'highTemp',
+					    		 id:'highTemp'
+					    	  },
+					    	  {
+					    		 xtype:'textfield',
+					    		 label:'Wind Scale',
+					    		 name:'windScale',
+					    		 id:'windScale'
+					    	  },
 								{
 					            xtype: 'button',
-					            text: 'add',
+					            text: 'Add',
 					            action:'saveweather',
 					            ui:'button'
 								}

@@ -3,6 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'editactivitiesntaskform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker','Ext.field.Hidden'],
 config:{
+	title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,
@@ -10,7 +11,15 @@ items:[
 	{
             docked: 'top',
             xtype: 'toolbar',
-            title: 'Activities and Tasks'  
+            title: 'Activities and Tasks'  ,
+             items:[
+            		{
+            			xtype:'button',
+            			text:'Delete',
+            			action:'deleteactivities',
+            			ui:'button'
+            		}
+            	]
      },
 	{
 		xtype:'fieldset',
@@ -55,6 +64,16 @@ items:[
 					    		 name:'endDate',
 					    		 id:'endDateText'
 					    	  },
+					    	  {
+												xtype: 'selectfield',
+												label: 'Responsible Company',
+												name:'responsibleCompany',
+												id:'responsibleCompany',
+												options: [
+												
+												{text: 'RER Contractors',  value: 'RER Contractors'},
+												{text: 'Reed Services',  value: 'Reed Services'}
+											]},
 			
 			{
             xtype: 'button',

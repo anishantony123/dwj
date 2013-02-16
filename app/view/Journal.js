@@ -2,10 +2,10 @@ Ext.define('radiss.view.Journal',{
 extend:'Ext.form.FormPanel',
 xtype:'journal',
 id:'journal',
-requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox'],
+requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditJournal'],
 config:{
-/*title:'Journal',
-iconCls:'settings',*/
+title:'DWJ Demo',
+/*iconCls:'settings',*/
 //standardSubmit:true,
 items:[
 	{
@@ -28,7 +28,7 @@ items:[
 			]},
 			{
             xtype: 'button',
-            text: 'add',
+            text: 'Add',
             action:'savejournal',
             ui:'button'
 			}

@@ -3,6 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'editequipment',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','radiss.view.JournalList','Ext.MessageBox'],
 config:{
+title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,
@@ -30,18 +31,28 @@ items:[
 			xtype:'hiddenfield',
 			name:'id'
 			},
-			{
-					    		 xtype:'textfield',
-					    		 label:'Equipment',
-					    		 name:'Equipment',
-					    		 id:'equipmentField'
-					    	 },
-					    	 {
-					    		 xtype:'textfield',
-					    		 label:'Operating Company',
-					    		 name:'OperatingCompany',
-					    		 id:'operatingCompanyField'
-					    	 },
+		
+					    
+							 {
+												xtype: 'selectfield',
+												label: 'Equipment',
+												name:'Equipment',
+												id:'equipmentField',
+												options: [
+												{text: 'E01: Bulldozer',  value: 'E01: Bulldozer'},
+												{text: 'E02: Excavator',  value: 'E02: Excavator'},
+												{text: 'E03: Grader', value: 'E03: Grader'},
+												{text: 'E04: Generator',  value: 'E04: Generator'},
+												{text: 'E05: Portable Lighting',  value: 'E05: Portable Lighting'}
+											]}, {
+												xtype: 'selectfield',
+												label: 'Operating Company',
+												name:'OperatingCompany',
+												id:'operatingCompanyField',
+												options: [
+												{text: 'RER Contractors',  value: 'RER Contractors'},
+												{text: 'Reed Services',  value: 'Reed Services'}
+											]},
 					    	   {
 					    		 xtype:'textfield',
 					    		 label:'Equipment Status',
@@ -59,6 +70,24 @@ items:[
 					    		 label:'Overtime Rate',
 					    		 name:'OverRate',
 					    		 id:'ovrRateField'
+
+					    	  }, {
+												xtype: 'selectfield',
+												label: 'Area/Zone',
+												name:'areazone',
+												id:'areazone',
+												options: [
+												
+												{text: 'BDG: Building',  value: 'BDG: Building'},
+												{text: 'BRG: Bridge',  value: 'BRG: Bridge'},
+												{text: 'RDW: Roadway',  value: 'RDW: Roadway'}
+											]},
+					    	   {
+					    		 xtype:'textfield',
+					    		 label:'Area/Zone',
+					    		 name:'areazone',
+					    		 id:'areazone'
+
 					    	  },
 					    	  {
 					    		 xtype:'textfield',

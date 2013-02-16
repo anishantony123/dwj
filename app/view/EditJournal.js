@@ -3,6 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'editjournal',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','radiss.view.JournalList','Ext.MessageBox'],
 config:{
+title:'DWJ Demo',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

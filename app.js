@@ -12,7 +12,7 @@ Ext.application({
 			Ext.create('radiss.view.Main');	
 			}	*/	
 			launch: function () {
-
+		Ext.create('radiss.view.ConfigurationForm');
         Ext.Viewport.add([
             { xtype: 'loginlayout' },
             { xtype: 'mainlayout' }

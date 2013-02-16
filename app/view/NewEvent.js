@@ -3,7 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'newevent',
 requires:['Ext.form.FieldSet','Ext.field.Text'],
 config:{
-title:'New Event',
+title:'DWJ Demo',
 left: 0,
 padding: 10,
 //standardSubmit:true,

@@ -1,15 +1,22 @@
 Ext.define('radiss.view.LoginLayout',{
 //extend:'Ext.TabPanel',
 extend: 'Ext.form.Panel',
-requires:['radiss.view.Main'],
+requires:['radiss.view.Main','Ext.field.Password'],
 xtype:'loginlayout',
 id:'loginlayout',
 config:{
 	title:'DWJ Demo',
 	fullscreen:true,
 	 title: 'Login',
+	 /*
+	 layout:{
+		 pack:'center',
+		 type:'vbox',
+		 align:'center'
+				 },*/
+	 
      items: [
-                   
+                 
                     {
                         xtype: 'fieldset',
                         title: 'DWJ Demo Login',
