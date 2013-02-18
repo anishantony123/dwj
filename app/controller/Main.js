@@ -881,7 +881,7 @@ Ext.define('radiss.controller.Main', {
 		},
 		
 		takePicture:function(btn){
-			
+			var appOb=this;
 		//	console.log("------------->>"+btn.up('panel'));  
 		//	console.log('xzPicture taking....');
 		//btn.up('panel').setData({imgUrl:'asasa'});
@@ -915,7 +915,7 @@ Ext.define('radiss.controller.Main', {
         		//this.getAttachment().getStore().add({fileName:urlLast});
         		//Ext.Msg.alert('Before adding Store','Added to Store');
         		try{
-        		this.getAttachment().getStore().add({fileName:'asdfasdf'});
+        		appOb.getAttachment().getStore().add({fileName:imageData});
         		}catch(err)
         		{
         			var msg = Ext.Msg.show({
