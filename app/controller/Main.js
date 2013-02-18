@@ -935,9 +935,10 @@ Ext.define('radiss.controller.Main', {
 						}
 			
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
-				quality: 10, 
-				targetWidth: 100,
-				targetHeight: 100,
+				quality: 60, 
+				targetWidth: 400,
+				targetHeight: 400,
+				encodingType: Camera.EncodingType.JPEG,
         		destinationType: destinationType});
 			
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
@@ -1007,7 +1008,7 @@ Ext.define('radiss.controller.Main', {
       function(buttonId) {
         if(buttonId === 'yes') {
         	try{
-           var xmlString="<root>";
+           var xmlString='<?xml version="1.0" encoding="UTF-8"?><tns:DocumentData xsi:schemaLocation="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument Meridian.DailyWorkJournalDocument.xsd" xmlns:tns="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
         	configObj=this.getConfigurationform();
         	var url='/iapd/ipadapp/ipadapp/WebRoot/sync.jsp';
         	if(configObj.items.items[1].items.items[1].getValue()){
@@ -1142,7 +1143,7 @@ Ext.define('radiss.controller.Main', {
         	});
         	xmlString+="</tns:LaborItems>";
         	
-        	xmlString+="</root>";  
+        	xmlString+="</tns:DocumentData>";  
         	}catch(e){
         		
         		Ext.Msg.show("parse error",e);
