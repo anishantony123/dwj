@@ -23,13 +23,13 @@ items:[
             			action:'takeAPicture',
             			name:'mybutton',
             			ui:'button'
-            		},{
+            		},/*{
             			xtype:'button',
             			itemId: 'savePicture',
             			text:'Save',
             			action:'savePicture',
             			ui:'button'
-            		},
+            		},*/
             		{
             			xtype:'hiddenfield',
             			name:'imageUrl'	
