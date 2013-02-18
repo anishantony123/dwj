@@ -72,7 +72,8 @@ Ext.define('radiss.controller.Main', {
 			takeAPicture:'button[action=takeAPicture]',
 			savePicture:'button[action=savePicture]',
 			syncServer:'button[action=sync]',
-			configurationform:'configurationform'
+			configurationform:'configurationform',
+			maintask:'maintask'
 
 
          },
@@ -1033,6 +1034,25 @@ Ext.define('radiss.controller.Main', {
 	        var activitiesObj=this.getActivitesntasks().getStore();
 	        var eventsObj=this.getEvents().getStore();
 	        var visitorsObj=this.getVisitors().getStore();
+	        var maintaskRec=this.getMaintask().getValues();
+	        
+	      //  console.log(maintaskRec);
+	      	xmlString+="<tns:ProgramDocument><tns:AccountName>String</tns:AccountName>";
+			xmlString+="<tns:DocTitle>String</tns:DocTitle>";
+			xmlString+="<tns:DocumentGuid>String</tns:DocumentGuid></tns:ProgramDocument>";
+			xmlString+="<tns:ProjectDocument><tns:AccountName>String</tns:AccountName><tns:DocTitle>String</tns:DocTitle><tns:DocumentGuid>String</tns:DocumentGuid></tns:ProjectDocument>";	
+	        xmlString+="<tns:DailyWorkJournalSetReference_DocTitle>"+maintaskRec.reason+"</tns:DailyWorkJournalSetReference_DocTitle>";
+			xmlString+="<tns:DailyWorkJournalSetReference_DocumentGuid></tns:DailyWorkJournalSetReference_DocumentGuid>";
+			xmlString+="<tns:DocDescription></tns:DocDescription>";
+			xmlString+="<tns:DocDescriptionFull>"+maintaskRec.journalDate+"</tns:DocDescriptionFull>";
+			xmlString+="<tns:DocNote>"+maintaskRec.number+"</tns:DocNote>";
+			xmlString+="<tns:JournalDate>"+maintaskRec.journalDate+"</tns:JournalDate>";
+			xmlString+="<tns:DocTitle>"+maintaskRec.title+"</tns:DocTitle>";
+			xmlString+="<tns:Prepared_by_Company_DocTitle>"+maintaskRec.preparedByCompany+"</tns:Prepared_by_Company_DocTitle>";
+			xmlString+="<tns:Prepared_by_Company_Company_DocumentGuid>String</tns:Prepared_by_Company_Company_DocumentGuid>";
+			xmlString+="<tns:Prepared_by_Contact_DocTitle>String</tns:Prepared_by_Contact_DocTitle>";
+			xmlString+="<tns:Prepared_by_Contact_DocumentGuid>String</tns:Prepared_by_Contact_DocumentGuid>";
+	
 	        
         	xmlString+="<tns:JournalItems>";
         	journalObj.each(function(record){
