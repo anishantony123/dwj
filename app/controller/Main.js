@@ -935,9 +935,9 @@ Ext.define('radiss.controller.Main', {
 						}
 			
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
-				quality: 75, 
-				targetWidth: 600,
-				targetHeight: 600,
+				quality: 10, 
+				targetWidth: 100,
+				targetHeight: 100,
         		destinationType: destinationType});
 			
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
@@ -1006,6 +1006,7 @@ Ext.define('radiss.controller.Main', {
       "Start Synchronization Now?",
       function(buttonId) {
         if(buttonId === 'yes') {
+        	try{
            var xmlString="<root>";
         	configObj=this.getConfigurationform();
         	var url='/iapd/ipadapp/ipadapp/WebRoot/sync.jsp';
@@ -1040,7 +1041,7 @@ Ext.define('radiss.controller.Main', {
         		xmlString+='<tns:FileSize>0</tns:FileSize>';
         		xmlString+='<tns:ItemGuid>String</tns:ItemGuid>';
         		xmlString+='<tns:NewFileHandle>String</tns:NewFileHandle>';
-        		xmlString+='<tns:RawUrl>'+record.get('fileName')+'</tns:RawUrl>';
+        		xmlString+='<tns:RawUrl>'+record.get("fileName")+'</tns:RawUrl>';
         		xmlString+='<tns:UploadDate>2001-12-17T09:30:47Z</tns:UploadDate>';
         		xmlString+='</tns:DocumentAttachmentsRow>';
         	});
@@ -1141,7 +1142,11 @@ Ext.define('radiss.controller.Main', {
         	});
         	xmlString+="</tns:LaborItems>";
         	
-        	xmlString+="</root>";     
+        	xmlString+="</root>";  
+        	}catch(e){
+        		
+        		Ext.Msg.show("parse error",e);
+        	}   
 			console.log(xmlString);
 			
 			
