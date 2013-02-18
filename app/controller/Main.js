@@ -922,7 +922,7 @@ Ext.define('radiss.controller.Main', {
 							})
 						}
 			
-			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+			navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 10,
         	destinationType: destinationType});
 			
         	var attachMentObj=btn.up('panel');//Ext.create('radiss.view.NewAttachmentForm');
