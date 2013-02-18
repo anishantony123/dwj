@@ -1015,15 +1015,134 @@ Ext.define('radiss.controller.Main', {
 	        	console.log(url)
         
         	var journalObj=this.getJournallist().getStore();
-        	xmlString+="<journal>";
+	        var attachmentObj=this.getAttachment().getStore();
+	        var weatherObj=this.getWeather().getStore();
+	        var equipmentObj=this.getEquipment().getStore();
+	        var laboursObj=this.getLabour().getStore();
+	        var activitiesObj=this.getActivitesntasks().getStore();
+	        var eventsObj=this.getEvents().getStore();
+	        var visitorsObj=this.getVisitors().getStore();
+	        
+        	xmlString+="<tns:JournalItems>";
         	journalObj.each(function(record){
-        		xmlString+='<journalId>'+""+record.get("id")+'</journalId>';
-        		xmlString+='<journalEntry>'+record.get("journal")+'</journalEntry>';
+        		xmlString+="<tns:JournalItemsRow>";
+        		xmlString+='<tns:JournalNotes>'+record.get("journal")+'</tns:JournalNotes>';
+        		xmlString+='</tns:JournalItemsRow>';
         	});
-        	xmlString+="</journal>";
+        	xmlString+="</tns:JournalItems>";
+        	
+        	xmlString+="<tns:DocumentAttachments>";
+        	attachmentObj.each(function(record){
+        		xmlString+='<tns:DocumentAttachmentsRow>';
+        		xmlString+='<tns:Description>String</tns:Description>';
+        		xmlString+='<tns:DocAttachmentType>String</tns:DocAttachmentType>';
+        		xmlString+='<tns:FileName>String</tns:FileName>';
+        		xmlString+='<tns:FileSize>0</tns:FileSize>';
+        		xmlString+='<tns:ItemGuid>String</tns:ItemGuid>';
+        		xmlString+='<tns:NewFileHandle>String</tns:NewFileHandle>';
+        		xmlString+='<tns:RawUrl>'+record.get('fileName')+'</tns:RawUrl>';
+        		xmlString+='<tns:UploadDate>2001-12-17T09:30:47Z</tns:UploadDate>';
+        		xmlString+='</tns:DocumentAttachmentsRow>';
+        	});
+        	xmlString+="</tns:DocumentAttachments>";
+        	
+        	xmlString+="<tns:WeatherItems>";
+        	weatherObj.each(function(record){
+        		xmlString+='<tns:WeatherItemsRow>';
+        		xmlString+='<tns:FromTime>'+record.get('fromTime')+'</tns:FromTime>';
+        		xmlString+='<tns:ToTime>'+record.get('toTime')+'</tns:ToTime>';
+        		xmlString+='<tns:HighTemperature>'+record.get('highTemp')+'</tns:HighTemperature>';
+        		xmlString+='<tns:LowTemperature>'+record.get('lowTemp')+'</tns:LowTemperature>';
+        		xmlString+='<tns:Precipitation_FullCode>'+record.get('precipitation')+'</tns:Precipitation_FullCode>';
+        		xmlString+='<tns:Rainfall>'+record.get('rainfall')+'</tns:Rainfall>';
+        		xmlString+='<tns:Snowfall>'+record.get('snowfall')+'</tns:Snowfall>';
+        		xmlString+='<tns:WindScale>'+record.get('windScale')+'</tns:WindScale>';
+        		xmlString+='<tns:Note>'+record.get('notes')+'</tns:Note>';
+        		xmlString+='</tns:WeatherItemsRow>';
+        	});
+        	xmlString+="</tns:WeatherItems>";
+        	
+        	xmlString+="<tns:EquipmentItems>";
+        	equipmentObj.each(function(record){
+        		xmlString+='<tns:EquipmentItemsRow>';
+        		xmlString+='<tns:AreaZone_FullCode>'+record.get('areazone')+'</tns:AreaZone_FullCode>';
+        		xmlString+='<tns:Equipment_FullCode>'+record.get('Equipment')+'</tns:Equipment_FullCode>';
+        		xmlString+='<tns:EquipmentStatus>'+record.get('EquiStatus')+'</tns:EquipmentStatus>';
+        		xmlString+='<tns:OperatingCompany_DocTitle>'+record.get('OperatingCompany')+'</tns:OperatingCompany_DocTitle>';
+        		xmlString+='<tns:OperatingCompany_DocumentGuid>'+record.get('OperatingCompany')+'</tns:OperatingCompany_DocumentGuid>';
+        		xmlString+='<tns:OvertimeRate>'+record.get('OverRate')+'</tns:OvertimeRate>';
+        		xmlString+='<tns:Quantity>'+record.get('qty')+'</tns:Quantity>';
+        		xmlString+='<tns:RegularRate>'+record.get('RegRate')+'</tns:RegularRate>';
+        		xmlString+='</tns:EquipmentItemsRow>';
+        	});
+        	xmlString+="</tns:EquipmentItems>";
+        	
+        	// activites and task
+         	xmlString+="<tns:ActivityTaskItems>";
+        	activitiesObj.each(function(record){
+        		xmlString+='<tns:ActivityTaskItemsRow>';
+        		xmlString+='<tns:ActualFinishDate>'+record.get('endDate')+'</tns:ActualFinishDate>';
+        		xmlString+='<tns:ActualStartDate>'+record.get('startDate')+'</tns:ActualStartDate>';
+        		xmlString+='<tns:Description>'+record.get('description')+'</tns:Description>';
+        		xmlString+='<tns:IsWorkOn>'+record.get('workedOn')+'</tns:IsWorkOn>';
+        		xmlString+='<tns:PercentComplete>'+record.get('Percentage')+'</tns:PercentComplete>';
+        		xmlString+='<tns:ResponsibleCompany_DocTitle>'+record.get('responsibleCompany')+'</tns:ResponsibleCompany_DocTitle>';
+        		xmlString+='<tns:ResponsibleCompany_DocumentGuid>'+record.get('responsibleCompany')+'</tns:ResponsibleCompany_DocumentGuid>';
+        		xmlString+='<tns:TaskID>'+record.get('id')+'</tns:TaskID>';
+        		xmlString+='<tns:TaskTitle>'+record.get('taskTitle')+'</tns:TaskTitle>';
+        		xmlString+='</tns:ActivityTaskItemsRow>';
+        	});
+        	xmlString+="</tns:ActivityTaskItems>";
+        	
+        	//EventItems
+        	xmlString+="<tns:EventItems>";
+        	eventsObj.each(function(record){
+        		xmlString+='<tns:EventItemsRow>';
+        		xmlString+='<tns:EventNotes>'+record.get('EventTime')+'</tns:EventNotes>';
+        		xmlString+='<tns:EventTime>'+record.get('EventNotes')+'</tns:EventTime>';
+        		xmlString+='</tns:EventItemsRow>';
+        	});
+        	xmlString+="</tns:EventItems>";
+        	
+        	//visitors ..
+        	xmlString+="<tns:VisitorItems>";
+        	visitorsObj.each(function(record){
+        		xmlString+='<tns:VisitorItemsRow>';
+        		xmlString+='<tns:ArrivalTime>'+record.get('arrivalTime')+'</tns:ArrivalTime>';
+        		xmlString+='<tns:DepartureTime>'+record.get('depatureTime')+'</tns:DepartureTime>';
+        		xmlString+='<tns:Duration>'+record.get('arrivalTime')+'</tns:Duration>';
+        		xmlString+='<tns:ToSee_DocTitle>'+record.get('toSee')+'</tns:ToSee_DocTitle>';
+        		xmlString+='<tns:ToSee_DocumentGuid>'+record.get('EventNotes')+'</tns:ToSee_DocumentGuid>';
+        		xmlString+='<tns:VisitorInfo_Company_DocTitle>'+record.get('company')+'</tns:VisitorInfo_Company_DocTitle>';
+        		xmlString+='<tns:VisitorInfo_Company_DocumentGuid>'+record.get('compName')+'</tns:VisitorInfo_Company_DocumentGuid>';
+        		xmlString+='<tns:VisitorInfo_Contact_DocTitle>'+record.get('toSee')+'</tns:VisitorInfo_Contact_DocTitle>';
+        		xmlString+='<tns:VisitorInfo_Contact_DocumentGuid>'+record.get('toSee')+'</tns:VisitorInfo_Contact_DocumentGuid>';
+        		xmlString+='<tns:VisitorName>'+record.get('toSee')+'</tns:VisitorName>';
+        		xmlString+='<tns:VisitPurpose>'+record.get('purposeOfVisit')+'</tns:VisitPurpose>';
+        		xmlString+='</tns:VisitorItemsRow>';
+        	});
+        	xmlString+="</tns:VisitorItems>";
+        	
+        	//Labor ..
+        	xmlString+="<tns:LaborItems>";
+        	laboursObj.each(function(record){
+        		xmlString+='<tns:LaborItemsRow>';
+        		xmlString+='<tns:Company_DocTitle>'+record.get('company')+'</tns:Company_DocTitle>';
+        		xmlString+='<tns:Company_DocumentGuid></tns:Company_DocumentGuid>';
+        		xmlString+='<tns:Contract_DocTitle>'+record.get('contract')+'</tns:Contract_DocTitle>';
+        		xmlString+='<tns:Contract_DocumentGuid></tns:Contract_DocumentGuid>';
+        		xmlString+='<tns:Count>'+record.get('count')+'</tns:Count>';
+        		xmlString+='<tns:Notes>'+record.get('notes')+'</tns:Notes>';
+        		xmlString+='<tns:Trade_FullCode>'+record.get('trade')+'</tns:Trade_FullCode>';
+        		xmlString+='<tns:UOM>'+record.get('uom')+'</tns:UOM>';
+        		xmlString+='<tns:WorkArea_FullCode>'+record.get('workArea')+'</tns:WorkArea_FullCode>';
+        		xmlString+='<tns:WorkCategory_FullCode></tns:WorkCategory_FullCode>';
+        		xmlString+='</tns:LaborItemsRow>';
+        	});
+        	xmlString+="</tns:LaborItems>";
+        	
         	xmlString+="</root>";     
 			console.log(xmlString);
-			
 			
 			
 			//Ext.Ajax.request({
