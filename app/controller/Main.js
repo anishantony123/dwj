@@ -1171,11 +1171,19 @@ Ext.define('radiss.controller.Main', {
 			        var text = response.responseText;
 			      	  console.log(text);
 			      	  syncMask.hide();
-			      	  Ext.Msg.show("Success","Uploaded Successfully");
+			      	     	Ext.Msg.show({
+								title:'Success',
+								message:'Uploaded Successfully'
+							});
+			      	  
 			        // process server response here
 			    },
 			    failure:function(){
-			    	Ext.Msg.show("Failed","Request timedout");
+			    	Ext.Msg.show({
+								title:'Failed',
+								message:'Request timedout'
+							});
+							
 			    	syncMask.hide();
 			    }
 			});
