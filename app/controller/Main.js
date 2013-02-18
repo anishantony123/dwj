@@ -915,7 +915,7 @@ Ext.define('radiss.controller.Main', {
         		//this.getAttachment().getStore().add({fileName:urlLast});
         		Ext.Msg.alert('Before adding Store','Added to Store');
         		try{
-        		this.getAttachment().getStore().add({fileName:'asdf'});
+        		this.getAttachment().getStore().add({fileName:imageData.toString});
         		}catch(err)
         		{
         			var msg = Ext.Msg.show({
