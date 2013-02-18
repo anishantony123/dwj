@@ -24,7 +24,7 @@ items:[
 												name:'company',
 												id:'companyText',
 												options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'RER Contractors',  value: 'RER Contractors'},
 												{text: 'Reed Services',  value: 'Reed Services'},
 												{text: 'The Design House',  value: 'The Design House'}
@@ -34,7 +34,7 @@ items:[
 					    		 label:'Name',
 					    		 name:'compName',
 					    		 id:'CompanyNameText',
-					    		 value:'Larry A. Petit'
+					    		 //value:'Larry A. Petit'
 					    	  },
 					    	  {
 					    		 xtype:'textfield',
@@ -48,7 +48,7 @@ items:[
 					    		 name:'toSee',
 					    		 id:'toSeeText',
 					    		 options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'Adam Johnson',  value: 'Adam Johnson'},
 												{text: 'Brad Green',  value: 'Brad Green'},
 												{text: 'John Smith',  value: 'John Smith'},

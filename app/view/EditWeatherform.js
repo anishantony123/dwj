@@ -49,6 +49,7 @@ items:[
 												name:'precipitation',
 												id:'perceptionField',
 												options: [
+												{text: 'Select',  value: 'Select'},
 												{text: 'Drizzle: Drizzle',  value: 'Drizzle: Drizzle'},
 												{text: 'Flurries: Flurries',  value: 'Flurries: Flurries'},
 												{text: 'Rain: Rain', value: 'Rain: Rain'},

@@ -103,14 +103,14 @@ items:[
 					xtype:'textfield',
 					name:'preparedByCompany',
 					label:'Prepared by Company',
-					value:'ISTHA'
+					//value:'ISTHA'
 			},
 			
 			{
 					xtype:'textfield',
 					name:'preparedByContact',
                     label: 'Prepared By Contact',
-					value:'Adam Johnson'
+					//value:'Adam Johnson'
 			},
 			{
 					xtype:'textfield',

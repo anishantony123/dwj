@@ -70,7 +70,7 @@ items:[
 												name:'responsibleCompany',
 												id:'responsibleCompany',
 												options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'RER Contractors',  value: 'RER Contractors'},
 												{text: 'Reed Services',  value: 'Reed Services'}
 											]},

@@ -12,7 +12,7 @@ items:[
 	{
             docked: 'top',
             xtype: 'toolbar',
-            title: 'Journal'  
+            title: 'Equipment'  
      },
 	{
 		xtype:'fieldset',
@@ -26,6 +26,7 @@ items:[
 												name:'Equipment',
 												id:'equipmentField',
 												options: [
+												{text: 'Select',  value: 'Select'},
 												{text: 'E01: Bulldozer',  value: 'E01: Bulldozer'},
 												{text: 'E02: Excavator',  value: 'E02: Excavator'},
 												{text: 'E03: Grader', value: 'E03: Grader'},
@@ -38,6 +39,7 @@ items:[
 												name:'OperatingCompany',
 												id:'operatingCompanyField',
 												options: [
+												{text: 'Select',  value: 'Select'},
 												{text: 'RER Contractors',  value: 'RER Contractors'},
 												{text: 'Reed Services',  value: 'Reed Services'}
 											]},
@@ -65,7 +67,7 @@ items:[
 												name:'areazone',
 												id:'areazone',
 												options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'BDG: Building',  value: 'BDG: Building'},
 												{text: 'BRG: Bridge',  value: 'BRG: Bridge'},
 												{text: 'RDW: Roadway',  value: 'RDW: Roadway'}

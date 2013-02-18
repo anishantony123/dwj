@@ -23,7 +23,7 @@ items:[
 					    		 name:'company',
 					    		 id:'companyText',
 					    		 options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'RER Contractors',  value: 'RER Contractors'},
 												{text: 'Reed Services',  value: 'Reed Services'}
 											]
@@ -58,7 +58,7 @@ items:[
 					    		 name:'trade',
 					    		 id:'tradeText',
 					    		 options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'CF: Concrete Finisher',  value: 'CF: Concrete Finisher'},
 												{text: 'EL: Electrician',  value: 'EL: Electrician'},
 												{text: 'IW: Iron Worker',  value: 'IW: Iron Worker'},
@@ -72,7 +72,7 @@ items:[
 					    		 name:'workArea',
 					    		 id:'workAreaText',
 					    		 options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'BDG: Building',  value: 'BDG: Building'},
 												{text: 'BRG: Bridge',  value: 'BRG: Bridge'},
 												{text: 'RDW: Roadway',  value: 'RDW: Roadway'}

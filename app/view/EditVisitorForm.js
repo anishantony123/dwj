@@ -37,7 +37,7 @@ items:[
 												name:'company',
 												id:'companyText',
 												options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'RER Contractors',  value: 'RER Contractors'},
 												{text: 'Reed Services',  value: 'Reed Services'},
 												{text: 'The Design House',  value: 'The Design House'}
@@ -60,7 +60,7 @@ items:[
 					    		 name:'toSee',
 					    		 id:'toSeeText',
 					    		 options: [
-												
+												{text: 'Select',  value: 'Select'},
 												{text: 'Adam Johnson',  value: 'Adam Johnson'},
 												{text: 'Brad Green',  value: 'Brad Green'},
 												{text: 'John Smith',  value: 'John Smith'},
