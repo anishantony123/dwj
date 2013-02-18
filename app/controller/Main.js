@@ -1015,7 +1015,7 @@ Ext.define('radiss.controller.Main', {
 				       message: 'Synchronising with Server',
 				       indicator: false
 				    }
-				});
+				}).show();
 
            var xmlString='<?xml version="1.0" encoding="UTF-8"?><tns:DocumentData xsi:schemaLocation="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument Meridian.DailyWorkJournalDocument.xsd" xmlns:tns="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
         	configObj=this.getConfigurationform();
@@ -1160,8 +1160,8 @@ Ext.define('radiss.controller.Main', {
 			console.log(xmlString);
 			
 			
-			//Ext.Ajax.request({
-		 Ext.data.JsonP.request({
+			Ext.Ajax.request({
+		 //Ext.data.JsonP.request({
 			    url: url,
 			    timeout: 120000,
 			    params: {
@@ -1170,8 +1170,12 @@ Ext.define('radiss.controller.Main', {
 			    success: function(response){
 			        var text = response.responseText;
 			      	  console.log(text);
-			      	  //syncMask.hide();
+			      	  syncMask.hide();
 			        // process server response here
+			    },
+			    failure:function(){
+			    	Ext.Msg.show("Failed","request timedout");
+			    	syncMask.hide();
 			    }
 			});
         }
