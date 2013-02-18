@@ -913,14 +913,14 @@ Ext.define('radiss.controller.Main', {
         		console.log(attachMentObj.getHtml());
         		//var urlLast = imageURL.match(/([^\/]+)(?=\.\w+$)/)[0];
         		//this.getAttachment().getStore().add({fileName:urlLast});
-        		Ext.Msg.alert('Before adding Store','Going to Add);
+        		Ext.Msg.alert('Before adding Store','Added to Store');
         		try{
-        		this.getAttachment().getStore().add({fileName:'sdfdff');
-        		}catch(e)
+        		this.getAttachment().getStore().add({fileName:'asdf'});
+        		}catch(err)
         		{
         			var msg = Ext.Msg.show({
-								title:'Store problem',
-								message:e
+								title:'Cannot add to Store',
+								message:err
 							})
         		}
         		Ext.Msg.alert('Added to Store','Added to Store');
