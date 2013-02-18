@@ -923,7 +923,7 @@ Ext.define('radiss.controller.Main', {
 								message:err
 							})
         		}
-        		Ext.Msg.alert('Added to Store123','Added to Store');
+        		//Ext.Msg.alert('Added to Store123','Added to Store');
         	}
 
 			onFail=function(message){
