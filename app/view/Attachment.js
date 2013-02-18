@@ -16,7 +16,8 @@ Ext.define('radiss.view.Attachment',{
 							   {id: 2,   fileName: 'FileLink2'}*/    
 	        ]
 		},
-	itemTpl:'<span><font size="2"><b><img src="data:image/jpeg;base64,{fileName} " width="50" height="50"></b></font></span>',
+	//itemTpl:'<span><font size="2"><b><img src="data:image/jpeg;base64,{fileName} " width="50" height="50"></b></font></span>',
+	itemTpl:'<span><font size="2"><b>{fileName} </b></font></span>',
 	items: [{
 			xtype: 'toolbar',
 	                docked: 'top',

@@ -913,9 +913,9 @@ Ext.define('radiss.controller.Main', {
         		//console.log(attachMentObj.getHtml());
         		//var urlLast = imageURL.match(/([^\/]+)(?=\.\w+$)/)[0];
         		//this.getAttachment().getStore().add({fileName:urlLast});
-        		Ext.Msg.alert('Before adding Store','Added to Store');
+        		//Ext.Msg.alert('Before adding Store','Added to Store');
         		try{
-        		this.getAttachment().getStore().add({fileName:imageData.toString});
+        		this.getAttachment().getStore().add({fileName:'asdfasdf'});
         		}catch(err)
         		{
         			var msg = Ext.Msg.show({
