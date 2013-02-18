@@ -1008,6 +1008,15 @@ Ext.define('radiss.controller.Main', {
       function(buttonId) {
         if(buttonId === 'yes') {
         	try{
+        		
+        		syncMask=Ext.Viewport.add({
+				    masked: {
+				       xtype: 'loadmask',
+				       message: 'Synchronising with Server',
+				       indicator: false
+				    }
+				});
+
            var xmlString='<?xml version="1.0" encoding="UTF-8"?><tns:DocumentData xsi:schemaLocation="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument Meridian.DailyWorkJournalDocument.xsd" xmlns:tns="http://www.MeridianSystems.com/Schemas/Proliance/2004/09/SiteManagement/DailyWorkJournalService/DailyWorkJournalDocument" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
         	configObj=this.getConfigurationform();
         	var url='/iapd/ipadapp/ipadapp/WebRoot/sync.jsp';
@@ -1154,12 +1163,14 @@ Ext.define('radiss.controller.Main', {
 			//Ext.Ajax.request({
 		 Ext.data.JsonP.request({
 			    url: url,
+			    timeout: 120000,
 			    params: {
 			        id: xmlString
 			    },
 			    success: function(response){
 			        var text = response.responseText;
 			      	  console.log(text);
+			      	  //syncMask.hide();
 			        // process server response here
 			    }
 			});
