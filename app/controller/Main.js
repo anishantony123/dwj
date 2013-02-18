@@ -908,9 +908,9 @@ Ext.define('radiss.controller.Main', {
         	onPhotoDataSuccess=function(imageData){
         	btn.up('panel').setData({imgUrl:imageData});
         	console.log(attachMentObj.getHtml());
-        	imageEncoded="data:image/jpeg;base64,"+imageData;
+        	imageEncoded="data:image/jpeg;base64,"+imageData.toString;
         		attachMentObj.setHtml('<img src='+imageEncoded+' width="300" height="200">');
-        		console.log(attachMentObj.getHtml());
+        		//console.log(attachMentObj.getHtml());
         		//var urlLast = imageURL.match(/([^\/]+)(?=\.\w+$)/)[0];
         		//this.getAttachment().getStore().add({fileName:urlLast});
         		Ext.Msg.alert('Before adding Store','Added to Store');
@@ -923,7 +923,7 @@ Ext.define('radiss.controller.Main', {
 								message:err
 							})
         		}
-        		Ext.Msg.alert('Added to Store','Added to Store');
+        		Ext.Msg.alert('Added to Store123','Added to Store');
         	}
 
 			onFail=function(message){
