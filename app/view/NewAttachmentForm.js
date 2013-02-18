@@ -19,14 +19,14 @@ items:[
             		{
             			xtype:'button',
             			itemId: 'mybutton',
-            			text:'Take a picture',
+            			text:'Click',
             			action:'takeAPicture',
             			name:'mybutton',
             			ui:'button'
             		},{
             			xtype:'button',
             			itemId: 'savePicture',
-            			text:'Upload',
+            			text:'Save',
             			action:'savePicture',
             			ui:'button'
             		},

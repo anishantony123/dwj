@@ -12,11 +12,11 @@ items:[
 	xtype: 'toolbar',
             docked: 'top',
             title: 'Main',
-            items:[
+            items:[{xtype:'spacer'},
             		{
             			xtype:'button',
-            			text:'Settings',
-            			action:'showSettings',
+            			text:'Sync',
+            			action:'sync',
             			ui:'button'
             		}
             	]

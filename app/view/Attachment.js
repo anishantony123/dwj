@@ -9,14 +9,14 @@ Ext.define('radiss.view.Attachment',{
 	glossOnIcon: false,
 	/*onItemDisclosure: true,*/
 		store:{
-		 fields: ['id','fileName','filePath'],
+		 fields: ['id','fileName','filePath','fileContent'],
 	        data: [
 	           /*
 				{id: 1,  fileName: 'FileLink1'},
 							   {id: 2,   fileName: 'FileLink2'}*/    
 	        ]
 		},
-	itemTpl:'<span><b>img : </b><img src={fileName} width="20" height="20"></span>',
+	itemTpl:'<span><font size="2"><b><img src="data:image/jpeg;base64,{fileName} " width="50" height="50"></b></font></span>',
 	items: [{
 			xtype: 'toolbar',
 	                docked: 'top',

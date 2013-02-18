@@ -10,7 +10,7 @@ config:{
 	title:'DWJ Demo',
 	fullscreen:true,
 	tabBarPosition:'bottom',
-tabBar: {
+	 tabBar: {
 	scrollable: {
             direction: 'horizontal'
        }},
@@ -20,10 +20,6 @@ tabBar: {
 		{
 		xtype:'maintask'
 		},
-		
-				{
-				xtype:'attachment'
-				},
 		{
 		xtype:'listJournal'		
 		},
@@ -32,8 +28,7 @@ tabBar: {
 		},
 		{
 		xtype:'equipment'
-		}
-		,
+		},
 		{
 		xtype:'activitesntasks'
 		},
@@ -46,7 +41,10 @@ tabBar: {
 		{
 		xtype:'labour'
 		}
-		
+		,
+				{
+				xtype:'attachment'
+				}
 				
 		
 		]	

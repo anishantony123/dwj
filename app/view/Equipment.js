@@ -1,7 +1,7 @@
 var equipment =Ext.define('radiss.view.Equipment',{
 	extend:'Ext.List',
 	xtype:'equipment',
-	requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditEquipment'],
+	requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditEquipment','Ext.data.Store'],
 	fullscreen:true,
 	
 	config:{			
