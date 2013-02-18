@@ -4,7 +4,7 @@ xtype:'journal',
 id:'journal',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditJournal'],
 config:{
-title:'Proliance Mobile',
+title:'<div style="text-align:center; margin:0 0 -8 0;"><img src="images/bannerLogo.png" valign="top"/> Proliance Mobile</div>',
 /*iconCls:'settings',*/
 //standardSubmit:true,
 items:[

@@ -4,7 +4,7 @@ xtype:'newVisitorForm',
 id:'newVisitorForm',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker'],
 config:{
-		title:'Proliance Mobile',
+		title:'<div style="text-align:center; margin:0 0 -8 0;"><img src="images/bannerLogo.png" valign="top"/> Proliance Mobile</div>',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

@@ -4,7 +4,7 @@ xtype:'weatherform',
 id:'weatherform',
 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
 config:{
-title:'Proliance Mobile',
+title:'<div style="text-align:center; margin:0 0 -8 0;"><img src="images/bannerLogo.png" valign="top"/> Proliance Mobile</div>',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

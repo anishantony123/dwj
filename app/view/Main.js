@@ -7,7 +7,7 @@ id:'mainpanel',
 
 config:{
 //	html:'welcome to rims helpdesk',
-	title:'Proliance Mobile',
+	title:'<div style="text-align:center; margin:0 0 -8 0;"><img src="images/bannerLogo.png" valign="top"/> Proliance Mobile</div>',
 	fullscreen:true,
 	tabBarPosition:'bottom',
 	 tabBar: {
