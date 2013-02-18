@@ -7,7 +7,7 @@ id:'mainpanel',
 
 config:{
 //	html:'welcome to rims helpdesk',
-	title:'DWJ Demo',
+	title:'Proliance Mobile',
 	fullscreen:true,
 	tabBarPosition:'bottom',
 	 tabBar: {

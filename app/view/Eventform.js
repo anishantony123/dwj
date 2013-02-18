@@ -4,7 +4,7 @@ xtype:'eventform',
 id:'eventform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox'],
 config:{
-	title:'DWJ Demo',
+	title:'Proliance Mobile',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

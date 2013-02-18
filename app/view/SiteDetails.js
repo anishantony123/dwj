@@ -3,7 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'sitedetails',
 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker','Ext.Viewport'],
 config:{
-title:'DWJ Demo',
+title:'Proliance Mobile',
 iconCls:'home',
 //standardSubmit:true,
 items:[

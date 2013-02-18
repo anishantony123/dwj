@@ -5,7 +5,7 @@ requires:['radiss.view.Main','Ext.field.Password'],
 xtype:'loginlayout',
 id:'loginlayout',
 config:{
-	title:'DWJ Demo',
+	title:'Proliance Mobile',
 	fullscreen:true,
 	 title: 'Login',
 	 /*
@@ -19,7 +19,7 @@ config:{
                  
                     {
                         xtype: 'fieldset',
-                        title: 'DWJ Demo Login',
+                        title: 'Proliance Mobile',
                         items: [
                             {
                                 xtype: 'textfield',

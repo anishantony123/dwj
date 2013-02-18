@@ -4,7 +4,7 @@ xtype:'weatherform',
 id:'weatherform',
 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker'],
 config:{
-title:'DWJ Demo',
+title:'Proliance Mobile',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

@@ -7,7 +7,7 @@ config:{
 	iconCls:'home',
 	fullscreen:true,
 	layout:'vbox',
-	title:'DWR Demo',
+	title:'Proliance Mobile',
 	items:[ {
 		
             xtype:'journal',

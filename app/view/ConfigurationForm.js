@@ -3,7 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'configurationform',
 requires:['Ext.form.FieldSet','Ext.field.Text','Ext.field.DatePicker','Ext.Viewport','Ext.field.Select'],
 config:{
-title:'DWJ Demo',
+title:'Proliance Mobile',
 store:{
 		 fields: ['id', 'mime','url','contentType','characterType'],
 	        data: [

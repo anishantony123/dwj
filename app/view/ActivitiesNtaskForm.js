@@ -4,7 +4,7 @@ xtype:'activitiesntaskform',
 id:'activitiesntaskform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker','Ext.field.Select'],
 config:{
-	title:'DWJ Demo',
+	title:'Proliance Mobile',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

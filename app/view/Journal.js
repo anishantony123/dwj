@@ -4,7 +4,7 @@ xtype:'journal',
 id:'journal',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','radiss.view.EditJournal'],
 config:{
-title:'DWJ Demo',
+title:'Proliance Mobile',
 /*iconCls:'settings',*/
 //standardSubmit:true,
 items:[

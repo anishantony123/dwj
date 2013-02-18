@@ -4,7 +4,7 @@ xtype:'newVisitorForm',
 id:'newVisitorForm',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker'],
 config:{
-		title:'DWJ Demo',
+		title:'Proliance Mobile',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

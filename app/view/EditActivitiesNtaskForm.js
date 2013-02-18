@@ -3,7 +3,7 @@ extend:'Ext.form.FormPanel',
 xtype:'editactivitiesntaskform',
 requires:['Ext.form.FieldSet','Ext.field.TextArea','Ext.MessageBox','Ext.field.DatePicker','Ext.field.Hidden'],
 config:{
-	title:'DWJ Demo',
+	title:'Proliance Mobile',
 /*title:'Journal',
 iconCls:'settings',*/
 //standardSubmit:true,

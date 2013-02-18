@@ -15,7 +15,7 @@ items:[
             items:[{xtype:'spacer'},
             		{
             			xtype:'button',
-            			text:'Sync',
+            			text:'Submit',
             			action:'sync',
             			ui:'button'
             		}
