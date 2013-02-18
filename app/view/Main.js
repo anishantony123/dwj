@@ -10,6 +10,10 @@ config:{
 	title:'DWJ Demo',
 	fullscreen:true,
 	tabBarPosition:'bottom',
+tabBar: {
+	scrollable: {
+            direction: 'horizontal'
+       }},
 	items:[
 		
 		
@@ -29,7 +33,7 @@ config:{
 		{
 		xtype:'equipment'
 		}
-		/*,
+		,
 		{
 		xtype:'activitesntasks'
 		},
@@ -42,7 +46,7 @@ config:{
 		{
 		xtype:'labour'
 		}
-		*/
+		
 				
 		
 		]	
