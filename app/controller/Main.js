@@ -1037,21 +1037,21 @@ Ext.define('radiss.controller.Main', {
 	        var maintaskRec=this.getMaintask().getValues();
 	        
 	      //  console.log(maintaskRec);
-	      	xmlString+="<tns:ProgramDocument><tns:AccountName>String</tns:AccountName>";
-			xmlString+="<tns:DocTitle>String</tns:DocTitle>";
-			xmlString+="<tns:DocumentGuid>String</tns:DocumentGuid></tns:ProgramDocument>";
-			xmlString+="<tns:ProjectDocument><tns:AccountName>String</tns:AccountName><tns:DocTitle>String</tns:DocTitle><tns:DocumentGuid>String</tns:DocumentGuid></tns:ProjectDocument>";	
-	        xmlString+="<tns:DailyWorkJournalSetReference_DocTitle>"+maintaskRec.reason+"</tns:DailyWorkJournalSetReference_DocTitle>";
+	      	xmlString+="<tns:ProgramDocument><tns:AccountName/>";
+			xmlString+="<tns:DocTitle/>";
+			xmlString+="<tns:DocumentGuid/></tns:ProgramDocument>";
+			xmlString+="<tns:ProjectDocument><tns:AccountName/><tns:DocTitle/><tns:DocumentGuid/></tns:ProjectDocument>";	
+	        xmlString+="<tns:DailyWorkJournalSetReference_DocTitle></tns:DailyWorkJournalSetReference_DocTitle>";
 			xmlString+="<tns:DailyWorkJournalSetReference_DocumentGuid></tns:DailyWorkJournalSetReference_DocumentGuid>";
 			xmlString+="<tns:DocDescription></tns:DocDescription>";
-			xmlString+="<tns:DocDescriptionFull>"+maintaskRec.journalDate+"</tns:DocDescriptionFull>";
+			xmlString+="<tns:DocDescriptionFull>"+maintaskRec.reason+"</tns:DocDescriptionFull>";
 			xmlString+="<tns:DocNote>"+maintaskRec.number+"</tns:DocNote>";
-			xmlString+="<tns:JournalDate>"+maintaskRec.journalDate+"</tns:JournalDate>";
+			xmlString+="<tns:JournalDate>"+maintaskRec.journalDate.toISOString()+"</tns:JournalDate>";
 			xmlString+="<tns:DocTitle>"+maintaskRec.title+"</tns:DocTitle>";
 			xmlString+="<tns:Prepared_by_Company_DocTitle>"+maintaskRec.preparedByCompany+"</tns:Prepared_by_Company_DocTitle>";
-			xmlString+="<tns:Prepared_by_Company_Company_DocumentGuid>String</tns:Prepared_by_Company_Company_DocumentGuid>";
-			xmlString+="<tns:Prepared_by_Contact_DocTitle>String</tns:Prepared_by_Contact_DocTitle>";
-			xmlString+="<tns:Prepared_by_Contact_DocumentGuid>String</tns:Prepared_by_Contact_DocumentGuid>";
+			xmlString+="<tns:Prepared_by_Company_Company_DocumentGuid></tns:Prepared_by_Company_Company_DocumentGuid>";
+			xmlString+="<tns:Prepared_by_Contact_DocTitle></tns:Prepared_by_Contact_DocTitle>";
+			xmlString+="<tns:Prepared_by_Contact_DocumentGuid></tns:Prepared_by_Contact_DocumentGuid>";
 	
 	        
         	xmlString+="<tns:JournalItems>";
@@ -1066,13 +1066,13 @@ Ext.define('radiss.controller.Main', {
         	attachmentObj.each(function(record){
         		xmlString+='<tns:DocumentAttachmentsRow>';
         		xmlString+='<tns:Description>String</tns:Description>';
-        		xmlString+='<tns:DocAttachmentType>String</tns:DocAttachmentType>';
-        		xmlString+='<tns:FileName>String</tns:FileName>';
+        		xmlString+='<tns:DocAttachmentType>jpeg</tns:DocAttachmentType>';
+        		xmlString+='<tns:FileName>pic.jpg</tns:FileName>';
         		xmlString+='<tns:FileSize>0</tns:FileSize>';
         		xmlString+='<tns:ItemGuid>String</tns:ItemGuid>';
         		xmlString+='<tns:NewFileHandle>String</tns:NewFileHandle>';
         		xmlString+='<tns:RawUrl>'+record.get("fileName")+'</tns:RawUrl>';
-        		xmlString+='<tns:UploadDate>2001-12-17T09:30:47Z</tns:UploadDate>';
+        		xmlString+='<tns:UploadDate>'+new Date().toISOString()+'</tns:UploadDate>';
         		xmlString+='</tns:DocumentAttachmentsRow>';
         	});
         	xmlString+="</tns:DocumentAttachments>";
@@ -1084,7 +1084,8 @@ Ext.define('radiss.controller.Main', {
         		xmlString+='<tns:ToTime>'+record.get('toTime')+'</tns:ToTime>';
         		xmlString+='<tns:HighTemperature>'+record.get('highTemp')+'</tns:HighTemperature>';
         		xmlString+='<tns:LowTemperature>'+record.get('lowTemp')+'</tns:LowTemperature>';
-        		xmlString+='<tns:Precipitation_FullCode>'+record.get('precipitation')+'</tns:Precipitation_FullCode>';
+				optValue = record.get('precipitation');
+        		xmlString+='<tns:Precipitation_FullCode>'+optValue.substr(0,optValue.indexOf(':'))+'</tns:Precipitation_FullCode>';
         		xmlString+='<tns:Rainfall>'+record.get('rainfall')+'</tns:Rainfall>';
         		xmlString+='<tns:Snowfall>'+record.get('snowfall')+'</tns:Snowfall>';
         		xmlString+='<tns:WindScale>'+record.get('windScale')+'</tns:WindScale>';
@@ -1096,8 +1097,10 @@ Ext.define('radiss.controller.Main', {
         	xmlString+="<tns:EquipmentItems>";
         	equipmentObj.each(function(record){
         		xmlString+='<tns:EquipmentItemsRow>';
-        		xmlString+='<tns:AreaZone_FullCode>'+record.get('areazone')+'</tns:AreaZone_FullCode>';
-        		xmlString+='<tns:Equipment_FullCode>'+record.get('Equipment')+'</tns:Equipment_FullCode>';
+				optValue = record.get('areazone');
+        		xmlString+='<tns:AreaZone_FullCode>'+optValue.substr(0,optValue.indexOf(':'))+'</tns:AreaZone_FullCode>';
+				optValue = record.get('Equipment');
+        		xmlString+='<tns:Equipment_FullCode>'+optValue.substr(0,optValue.indexOf(':'))+'</tns:Equipment_FullCode>';
         		xmlString+='<tns:EquipmentStatus>'+record.get('EquiStatus')+'</tns:EquipmentStatus>';
         		xmlString+='<tns:OperatingCompany_DocTitle>'+record.get('OperatingCompany')+'</tns:OperatingCompany_DocTitle>';
         		xmlString+='<tns:OperatingCompany_DocumentGuid>'+record.get('OperatingCompany')+'</tns:OperatingCompany_DocumentGuid>';
@@ -1112,11 +1115,11 @@ Ext.define('radiss.controller.Main', {
          	xmlString+="<tns:ActivityTaskItems>";
         	activitiesObj.each(function(record){
         		xmlString+='<tns:ActivityTaskItemsRow>';
-        		xmlString+='<tns:ActualFinishDate>'+record.get('endDate')+'</tns:ActualFinishDate>';
-        		xmlString+='<tns:ActualStartDate>'+record.get('startDate')+'</tns:ActualStartDate>';
+        		xmlString+='<tns:ActualFinishDate>'+record.get('endDate').toISOString()+'</tns:ActualFinishDate>';
+        		xmlString+='<tns:ActualStartDate>'+record.get('startDate').toISOString()+'</tns:ActualStartDate>';
         		xmlString+='<tns:Description>'+record.get('description')+'</tns:Description>';
         		xmlString+='<tns:IsWorkOn>'+record.get('workedOn')+'</tns:IsWorkOn>';
-        		xmlString+='<tns:PercentComplete>'+record.get('Percentage')+'</tns:PercentComplete>';
+        		xmlString+='<tns:PercentComplete>'+record.get('percent')+'</tns:PercentComplete>';
         		xmlString+='<tns:ResponsibleCompany_DocTitle>'+record.get('responsibleCompany')+'</tns:ResponsibleCompany_DocTitle>';
         		xmlString+='<tns:ResponsibleCompany_DocumentGuid>'+record.get('responsibleCompany')+'</tns:ResponsibleCompany_DocumentGuid>';
         		xmlString+='<tns:TaskID>'+record.get('id')+'</tns:TaskID>';
@@ -1143,7 +1146,7 @@ Ext.define('radiss.controller.Main', {
         		xmlString+='<tns:DepartureTime>'+record.get('depatureTime')+'</tns:DepartureTime>';
         		xmlString+='<tns:Duration>'+record.get('arrivalTime')+'</tns:Duration>';
         		xmlString+='<tns:ToSee_DocTitle>'+record.get('toSee')+'</tns:ToSee_DocTitle>';
-        		xmlString+='<tns:ToSee_DocumentGuid>'+record.get('EventNotes')+'</tns:ToSee_DocumentGuid>';
+        		xmlString+='<tns:ToSee_DocumentGuid></tns:ToSee_DocumentGuid>';
         		xmlString+='<tns:VisitorInfo_Company_DocTitle>'+record.get('company')+'</tns:VisitorInfo_Company_DocTitle>';
         		xmlString+='<tns:VisitorInfo_Company_DocumentGuid>'+record.get('compName')+'</tns:VisitorInfo_Company_DocumentGuid>';
         		xmlString+='<tns:VisitorInfo_Contact_DocTitle>'+record.get('toSee')+'</tns:VisitorInfo_Contact_DocTitle>';
@@ -1157,16 +1160,18 @@ Ext.define('radiss.controller.Main', {
         	//Labor ..
         	xmlString+="<tns:LaborItems>";
         	laboursObj.each(function(record){
-        		xmlString+='<tns:LaborItemsRow>';
+        		xmlString+='<tns:LaborItemsRow>';				
         		xmlString+='<tns:Company_DocTitle>'+record.get('company')+'</tns:Company_DocTitle>';
         		xmlString+='<tns:Company_DocumentGuid></tns:Company_DocumentGuid>';
         		xmlString+='<tns:Contract_DocTitle>'+record.get('contract')+'</tns:Contract_DocTitle>';
         		xmlString+='<tns:Contract_DocumentGuid></tns:Contract_DocumentGuid>';
         		xmlString+='<tns:Count>'+record.get('count')+'</tns:Count>';
         		xmlString+='<tns:Notes>'+record.get('notes')+'</tns:Notes>';
-        		xmlString+='<tns:Trade_FullCode>'+record.get('trade')+'</tns:Trade_FullCode>';
+				optValue = record.get('trade');
+        		xmlString+='<tns:Trade_FullCode>'+optValue.substr(0,optValue.indexOf(':'))+'</tns:Trade_FullCode>';
         		xmlString+='<tns:UOM>'+record.get('uom')+'</tns:UOM>';
-        		xmlString+='<tns:WorkArea_FullCode>'+record.get('workArea')+'</tns:WorkArea_FullCode>';
+				optValue = record.get('workArea');
+        		xmlString+='<tns:WorkArea_FullCode>'+optValue.substr(0,optValue.indexOf(':'))+'</tns:WorkArea_FullCode>';
         		xmlString+='<tns:WorkCategory_FullCode></tns:WorkCategory_FullCode>';
         		xmlString+='</tns:LaborItemsRow>';
         	});
