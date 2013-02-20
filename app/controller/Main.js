@@ -1190,8 +1190,9 @@ Ext.define('radiss.controller.Main', {
 			    url: url,
 			    timeout: 120000,
 			    params: {
-			        id: xmlString
+			    //    id: xmlString
 			    },
+			    jsonData:xmlString,
 			    success: function(response){
 			        var text = response.responseText;
 			      	  console.log(text);
